@@ -19,6 +19,7 @@ findbugs_report.xml
 findbugs_report.html
 
 # Idea system files #
+.idea
 *.iws
 
 # Compiled source #
@@ -29,6 +30,7 @@ findbugs_report.html
 *.exe
 *.o
 *.so
+target
 
 # Original file versions #
 *.orig
