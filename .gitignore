@@ -1,0 +1,52 @@
+
+.idea/workspace.xml
+database
+out
+build
+data
+miner/web
+*.txt
+docs/*.html
+docs/ru
+docs/resources
+docs/*.css
+docs/package-list
+
+#checkStyle and findBugs reports#
+checkstyle_report.xml
+checkstyle_report.htm
+findbugs_report.xml
+findbugs_report.html
+
+# Idea system files #
+*.iws
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Original file versions #
+*.orig
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs#
+*.log
+
+# OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
