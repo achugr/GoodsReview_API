@@ -16,8 +16,13 @@ import java.io.IOException;
  * email: artemij.chugreev@gmail.com
  * skype: achugr
  */
-@Path("/viewScript")
-public class ViewScriptServlet {
+
+/**
+ * return script for view tag cloud
+ * it's experimental method, we need insert thesis in JSON in this script source
+ */
+@Path("/tagCloudFunction")
+public class ViewTagCloudFunctionServlet {
 
     @GET
     @Path("/script")
@@ -26,7 +31,7 @@ public class ViewScriptServlet {
         // Return some cliched textual content
         String page = null;
         try {
-            page = FileUtil.readFileAsString("test.js");
+            page = FileUtil.readFileAsString("viewTagCloudFunction.js");
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

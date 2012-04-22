@@ -16,8 +16,12 @@ import java.io.IOException;
  * email: artemij.chugreev@gmail.com
  * skype: achugr
  */
+
+/**
+ * return page with tag cloud
+ */
 @Path("tagCloud/product")
-public class TagCloudServlet {
+public class TagCloudPageServlet {
     
     @GET
     @Produces(MediaType.TEXT_HTML)

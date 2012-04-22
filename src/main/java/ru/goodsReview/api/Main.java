@@ -40,6 +40,7 @@
 
 package ru.goodsReview.api;
 
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -52,7 +53,9 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 
+
 public class Main {
+//    private static final Logger log = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException, JSONException {
         final FileSystemXmlApplicationContext storageContext = new FileSystemXmlApplicationContext(

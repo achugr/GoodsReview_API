@@ -1,5 +1,5 @@
 
-    function Preview(id)
+    function viewTagCloud(id)
     {
         var paper = Raphael(100, 100, 1000, 1000);
         $.get('http://localhost:8080/thesis/'+id, function(thesises){

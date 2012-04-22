@@ -1,5 +1,6 @@
 package ru.goodsReview.api.servlet;
 
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mortbay.util.ajax.JSON;
@@ -33,8 +34,15 @@ import java.util.List;
  * email: artemij.chugreev@gmail.com
  * skype: achugr
  */
+
+/**
+ * Servlet for produce ThesisSetForView on product by ID
+ */
 @Path("thesis")
 public class ThesisServlet {
+//    some problems with logger now :(
+//    TODO read documentation and fix this problem
+//    private static final Logger log = Logger.getLogger(ThesisServlet.class);
 
     @GET
     @Path("/{productId}")
@@ -44,11 +52,10 @@ public class ThesisServlet {
                 "src/main/resources/database.xml");
         DataSource dataSource = (DataSource) storageContext.getBean("dataSource");
         SimpleJdbcTemplate simpleJdbcTemplate = new SimpleJdbcTemplate(dataSource);
-        ProductDbController productDbController = new ProductDbController(new SimpleJdbcTemplate(dataSource));
-        ThesisDbController thesisDbController = new ThesisDbController(new SimpleJdbcTemplate(dataSource));
-        System.out.println("id: " + id );
+        ProductDbController productDbController = new ProductDbController(simpleJdbcTemplate);
+        ThesisDbController thesisDbController = new ThesisDbController(simpleJdbcTemplate);
         Product product = productDbController.getProductById(id);
-        System.out.println(product.getName() + " " + product.getId());
+        System.out.println("request thesises on product: #" +id +" -> "+ product.getName());
         List<Thesis> thesisList = thesisDbController.getThesesByProductId(id);
         return ThesisSetGenerator.newInstance(product, thesisList);
     }
