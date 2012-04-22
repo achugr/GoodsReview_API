@@ -1,0 +1,18 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="thesisForView">
+        <xsd:sequence>
+            <xsd:element name="value" type="xsd:string"/>
+            <xsd:element name="positivity" type="xsd:double"/>
+            <xsd:element name="importance" type="xsd:double"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:long"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="thesisSetForView">
+        <xsd:sequence>
+            <xsd:element name="product_name" type="xsd:string"/>
+            <xsd:element name="thesises" type="thesisForView" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

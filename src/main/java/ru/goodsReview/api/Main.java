@@ -40,23 +40,31 @@
 
 package ru.goodsReview.api;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import ru.goodsReview.core.db.ControllerFactory;
+import ru.goodsReview.core.model.Thesis;
+import ru.goodsReview.storage.controller.ThesisDbController;
+
+import javax.sql.DataSource;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-//        Server server = new Server(9998);
-//        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-//        context.setContextPath("/");
-//        server.setHandler(context);
-//        ServletHolder h = new ServletHolder(new ServletContainer(new MyService()));// ServletHolder(new ServletContainer());
-////        h.setInitParameter("com.sun.jersey.config.property.packages", "com.sun.jersey.samples.helloworld.resources");
-//        context.addServlet(h, "/*");
-//        try {
-//            server.start();
-//            server.join();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public static void main(String[] args) throws IOException, JSONException {
+        final FileSystemXmlApplicationContext storageContext = new FileSystemXmlApplicationContext(
+            "src/main/resources/database.xml");
+        DataSource ds = (DataSource) storageContext.getBean("dataSource");
+        ThesisDbController thesisDbController = new ThesisDbController(new SimpleJdbcTemplate(ds));
+        List<Thesis> thesisList = thesisDbController.getAllTheses();
+        int count=0;
+        for(Thesis thesis : thesisList){
+            count++;
+            System.out.println(thesis.getContent());
+        }
+        System.out.println(count);
     }
 }

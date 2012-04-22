@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName" default-init-method="afterPropertiesSet">
+    <!--Spring helpers-->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+    <!--Factory-->
+
+    <bean id="controllerFactory" class="ru.goodsReview.core.db.ControllerFactory">
+        <property name="thesisController" ref="thesisDbController"/>
+    </bean>
+
+    <!--Database-->
+
+    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource" lazy-init="false">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/goodsreview_permanent?useUnicode=true&amp;characterEncoding=utf8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="validationQuery" value="select 1"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate" lazy-init="false">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <!--Controllers-->
+
+    <bean id="thesisDbController" class="ru.goodsReview.storage.controller.ThesisDbController">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="main" class="ru.goodsReview.api.Main"/>
+
+
+</beans>
