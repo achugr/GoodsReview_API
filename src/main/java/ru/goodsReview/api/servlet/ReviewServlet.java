@@ -17,6 +17,7 @@ import javax.sql.DataSource;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,6 +44,9 @@ public class    ReviewServlet {
 
         try {
             thesisList = ExtractThesis.doExtraction(review, mystemAnalyzer);
+            for(Thesis thesis : thesisList){
+                System.out.println(thesis.getContent());
+            }
         } catch (IOException e) {
             e.printStackTrace();
             thesisList = new LinkedList<Thesis>();
