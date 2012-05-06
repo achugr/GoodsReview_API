@@ -1,4 +1,4 @@
-package ru.goodsReview.api.yaXml;
+package ru.goodsReview.api.servlet;
 
 import ru.goodsReview.api.util.YaSearcher;
 
