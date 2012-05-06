@@ -42,6 +42,7 @@ public class    ReviewServlet {
         try {
             byte [] utfString = reviewContent.getBytes("UTF8");
             reviewContent = new String(utfString, "UTF8");
+            System.out.println("utf8: " + reviewContent);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
