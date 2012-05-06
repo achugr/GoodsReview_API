@@ -24,7 +24,7 @@
 	function getThesisOnProduct(){
 	    var input = document.getElementById("product_id");
    	    var id = input.value;
-            $.get('http://goodsreview.me:8080/thesis/'+id, function(data){
+            $.get('http://localhost:8080/thesis/'+id, function(data){
                 var thesisTag = document.getElementById("thesis");
                 console.log(data);
 		thesisTag.innerHTML="";
