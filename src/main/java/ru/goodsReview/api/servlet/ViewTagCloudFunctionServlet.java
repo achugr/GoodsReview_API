@@ -19,7 +19,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Artemij Chugreev
@@ -42,12 +45,12 @@ public class ViewTagCloudFunctionServlet {
     public String viewScript(@PathParam("product_id") long productId) throws JSONException {
         // Return some cliched textual content
         String page = null;
-        List<Thesis> thesisList = thesisesOnProduct(productId);
+        List<Thesis> thesisList = thesisesOnProduct(productId);/*new java.util.LinkedList<Thesis>();*/
         String jsonThesises = thesisesIntoJSON(thesisList, "some product");
         try {
             page = FileUtil.readFileAsString("viewTagCloudFunction.js");
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
         return "var data="+ jsonThesises +";\n" + page;
     }

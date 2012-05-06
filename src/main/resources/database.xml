@@ -9,6 +9,8 @@
     <!--Factory-->
 
     <bean id="controllerFactory" class="ru.goodsReview.core.db.ControllerFactory">
+        <property name="productController" ref="productDbController"/>
+        <property name="reviewController" ref="reviewDbController"/>
         <property name="thesisController" ref="thesisDbController"/>
     </bean>
 
@@ -28,6 +30,14 @@
     </bean>
 
     <!--Controllers-->
+
+    <bean id="productDbController" class="ru.goodsReview.storage.controller.ProductDbController">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="reviewDbController" class="ru.goodsReview.storage.controller.ReviewDbController">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
 
     <bean id="thesisDbController" class="ru.goodsReview.storage.controller.ThesisDbController">
         <constructor-arg ref="jdbcTemplate"/>
