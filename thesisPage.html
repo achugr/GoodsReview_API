@@ -23,7 +23,7 @@
     function getTheses(){
     var input = document.getElementById("review");
     var contentOfReview = input.value;
-    $.post('http://localhost:8080/review/'+contentOfReview, function(data){
+    $.post('http://goodsreview.me:8080/review/'+contentOfReview, function(data){
     var thesisTag = document.getElementById("thesis");
     console.log(data);
     thesisTag.innerHTML="";
