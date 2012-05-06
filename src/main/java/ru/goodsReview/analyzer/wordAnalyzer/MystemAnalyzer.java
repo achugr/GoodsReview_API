@@ -60,6 +60,17 @@ public class MystemAnalyzer implements WordAnalyzer{
         }
     }
 
+    public static boolean isRussianWord (String word) {
+        //        TODO fix this (split by !, but отличный! - returns ""
+        for (int i = 0; i < word.length(); ++i) {
+            if (!isRussianLetter(word.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /**
      * Extract word
      * @param word
@@ -67,16 +78,7 @@ public class MystemAnalyzer implements WordAnalyzer{
      * @throws java.io.UnsupportedEncodingException
      */
     public String wordCharacteristic(String word) throws UnsupportedEncodingException {
-        int wl = word.length(); boolean b = true;
-        for (int i = 0; i < wl; ++i) {
-            if (!isRussianLetter(word.charAt(i))) {
-                b = false;
-                break;
-            }
-        }
-
-//        TODO fix this (split by !, but отличный! - returns ""
-        if (!b) {
+        if (!isRussianWord(word)) {
             return "";
         }
 

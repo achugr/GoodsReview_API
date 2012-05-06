@@ -53,6 +53,9 @@ public class ReviewTokens {
 
             token = new Token(currToken);
 
+            if (MystemAnalyzer.isRussianWord(currToken)) {
+
+            }
             if (PyMorphyAnalyzer.isRussianWord(currToken)) {
                 PartOfSpeech partOfSpeech = mystemAnalyzer.partOfSpeech(currToken);
                 if(partOfSpeech.equals(PartOfSpeech.ADJECTIVE)) {

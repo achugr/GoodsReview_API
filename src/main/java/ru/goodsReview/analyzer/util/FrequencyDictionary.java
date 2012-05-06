@@ -7,9 +7,9 @@ package ru.goodsReview.analyzer.util;
  *      artemij.chugreev@gmail.com
  */
 
-import ru.goodsReview.core.utils.HashMapUtil;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 public class FrequencyDictionary {
 

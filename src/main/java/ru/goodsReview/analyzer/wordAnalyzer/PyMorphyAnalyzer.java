@@ -3,7 +3,10 @@ package ru.goodsReview.analyzer.wordAnalyzer;
 import org.apache.log4j.Logger;
 import ru.goodsReview.core.utils.OSValidator;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -118,8 +121,10 @@ public class PyMorphyAnalyzer {
 
             //long stop = System.currentTimeMillis();
             // System.out.println("time in millis: " + (stop-start));
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             pyMorphyAnalyzer.close();
         }
