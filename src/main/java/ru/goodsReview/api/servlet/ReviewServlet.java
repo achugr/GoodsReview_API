@@ -41,7 +41,7 @@ public class    ReviewServlet {
         Review review = new Review(0, reviewContent);
         MystemAnalyzer mystemAnalyzer = new MystemAnalyzer();
         List<Thesis> thesisList;
-
+        System.out.println("review: " + review.getContent());
         try {
             thesisList = ExtractThesis.doExtraction(review, mystemAnalyzer);
             for(Thesis thesis : thesisList){
