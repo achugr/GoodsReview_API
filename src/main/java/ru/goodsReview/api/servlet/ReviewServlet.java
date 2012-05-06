@@ -17,6 +17,7 @@ import javax.sql.DataSource;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,6 +39,12 @@ public class    ReviewServlet {
     @Path("/{reviewContent}")
     @Produces(MediaType.APPLICATION_JSON)
     public ThesisSetForView getThesesOnProduct(@PathParam("reviewContent") String reviewContent) {
+        try {
+            byte [] utfString = reviewContent.getBytes("UTF8");
+            reviewContent = new String(utfString, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         Review review = new Review(0, reviewContent);
         MystemAnalyzer mystemAnalyzer = new MystemAnalyzer();
         List<Thesis> thesisList;
