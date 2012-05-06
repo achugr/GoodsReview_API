@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
  * To change this template use File | Settings | File Templates.
  */
 @Path("myServlet")
-public class MyServlet {
+public class GetThesesServlet {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
