@@ -16,8 +16,12 @@ import java.util.List;
  * skype: achugr
  */
 public class ThesisSetGenerator {
+
+    public static ThesisSetForView newInstance(List<Thesis> thesisList) {
+        return newInstance(new Product(0,""),thesisList);
+    }
     
-    public static ThesisSetForView newInstance(Product product, List<Thesis> thesisList){
+    public static ThesisSetForView newInstance(Product product, List<Thesis> thesisList) {
         ThesisSetForView thesisSet = new ThesisSetForView();
         thesisSet.setProductName(product.getName());
         List<ThesisForView> thesisForViewList = new LinkedList<ThesisForView>();

@@ -86,11 +86,11 @@ public class DictionaryGenerator extends TimerTask {
     /**
      * create frequency dictionary from normalized words
      *
-     * @throws java.io.FileNotFoundException
+     * @throws FileNotFoundException
      */
     private static void frequencyDictionaryFromNormalized() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("normalized_words.txt"));
-        HashMap<String, Integer> frequencyDictionary = new HashMap<String, Integer>();
+        HashMap<String, Integer> frequencyDictionary = new HashMap<String,Integer>();
         String token;
         while (scanner.hasNext()) {
             token = scanner.next();
@@ -116,8 +116,8 @@ public class DictionaryGenerator extends TimerTask {
     /**
      * extracts words from xml dataset
      *
-     * @throws javax.xml.xpath.XPathExpressionException
-     * @throws java.io.FileNotFoundException
+     * @throws XPathExpressionException
+     * @throws FileNotFoundException
      */
     private static void extractWordsFromDataset() throws XPathExpressionException, FileNotFoundException {
         XPath xPath = XPathFactory.newInstance().newXPath();
@@ -161,7 +161,7 @@ public class DictionaryGenerator extends TimerTask {
     public void run() {
         DictionaryGenerator opinionWordDictionary = null;
         try {
-            opinionWordDictionary = new DictionaryGenerator("dirty_opinion_words.txt", "pure_opinion_words.txt");
+            opinionWordDictionary = new DictionaryGenerator("dirty_opinion_words.txt", "adjective_opinion_words.txt");
         } catch (FileNotFoundException e) {
             log.error("something wrong with generate opinion word dictionary, probably file with dirty opinion words not exist", e);
             e.printStackTrace();

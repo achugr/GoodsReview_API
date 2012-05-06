@@ -3,10 +3,7 @@ package ru.goodsReview.analyzer.wordAnalyzer;
 import org.apache.log4j.Logger;
 import ru.goodsReview.core.utils.OSValidator;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -78,7 +75,7 @@ public class PyMorphyAnalyzer {
 
 //        String normalizedWord = sc.nextLine();
 //        System.out.println(normalizedWord);
-        
+
         BufferedReader stdInput = new BufferedReader(new InputStreamReader(analyzer.getInputStream()));
 
         BufferedReader stdError = new BufferedReader(new InputStreamReader(analyzer.getErrorStream()));
@@ -93,9 +90,9 @@ public class PyMorphyAnalyzer {
 //
 //       }
         String s =  stdInput.readLine();
-          if(s!=null){
-              return s;
-          }
+        if(s!=null){
+            return s;
+        }
 
 
 
@@ -103,7 +100,7 @@ public class PyMorphyAnalyzer {
 
         while ((s = stdError.readLine()) != null) {
 
-          //  System.out.println(s);
+            //  System.out.println(s);
 
         }
         return "";
