@@ -74,6 +74,7 @@ public class YaSearcher {
             String line = lineReader.readLine();
 
             while (line != null) {
+                System.out.println(line);
                 Matcher matcher = pagesCountPattern.matcher(line);
                 if (matcher.matches()) {
                     response = matcher.group(1);
