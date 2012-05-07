@@ -36,6 +36,7 @@ public class    ReviewServlet {
 //    private static final Logger log = Logger.getLogger(ThesisServlet.class);
 
     @POST
+    @Consumes(MediaType.TEXT_PLAIN)
     @Path("/{reviewContent}")
     @Produces(MediaType.APPLICATION_JSON)
     public ThesisSetForView getThesesOnProduct(@PathParam("reviewContent") String reviewContent) {
