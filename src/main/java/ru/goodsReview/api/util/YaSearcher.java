@@ -30,7 +30,7 @@ public class YaSearcher {
     private static final String userSettingsFileName = "ya_searcher_key.txt";
     private static String PASSWORD;
     private static String USER;
-    private static final Pattern pagesCountPattern = Pattern.compile("<found priority=\"all\">(\\d+)</found>");
+    private static final Pattern pagesCountPattern = Pattern.compile(".*<found priority=\"all\">(\\d+)</found>.*");
 
     public YaSearcher() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(userSettingsFileName));
@@ -56,7 +56,6 @@ public class YaSearcher {
                 .append("key=").append(PASSWORD).append(AND)
                 .append("query=").append(URLEncoder.encode(query, ENC)).append(AND)
                 .append("page=").append(pageNumber);
-        System.out.println("address: " + address.toString());
         final URL url = new URL(address.toString());
         return url.openStream();
     }
@@ -75,7 +74,6 @@ public class YaSearcher {
             String line = lineReader.readLine();
 
             while (line != null) {
-                System.out.println();
                 Matcher matcher = pagesCountPattern.matcher(line);
                 if (matcher.matches()) {
                     response = matcher.group(1);
@@ -96,6 +94,22 @@ public class YaSearcher {
             }
         }
         return response;
+    }
+
+    public static void main(String[] args) {
+        try {
+            YaSearcher yaSearcher = new YaSearcher();
+            System.out.println(yaSearcher.sendRequest("yandex"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+//        Pattern pattern = Pattern.compile("<found priority >(\\d+)</found>");
+////        String test = "<bla>1231241";
+//        String test = "<found priority>161037152</found>";
+//        Matcher matcher = pattern.matcher(test);
+//        if (matcher.matches()) {
+//            System.out.println(matcher.group(1));
+//        }
     }
 }
 
