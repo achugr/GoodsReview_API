@@ -56,6 +56,7 @@ public class YaSearcher {
                 .append("key=").append(PASSWORD).append(AND)
                 .append("query=").append(URLEncoder.encode(query, ENC)).append(AND)
                 .append("page=").append(pageNumber);
+        System.out.println("address: " + address.toString());
         final URL url = new URL(address.toString());
         return url.openStream();
     }
@@ -74,6 +75,7 @@ public class YaSearcher {
             String line = lineReader.readLine();
 
             while (line != null) {
+                System.out.println();
                 Matcher matcher = pagesCountPattern.matcher(line);
                 if (matcher.matches()) {
                     response = matcher.group(1);
