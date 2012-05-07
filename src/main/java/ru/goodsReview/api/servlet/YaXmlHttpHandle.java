@@ -2,9 +2,9 @@ package ru.goodsReview.api.servlet;
 
 import ru.goodsReview.api.util.YaSearcher;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.awt.*;
 import java.io.FileNotFoundException;
 
 /**
@@ -19,6 +19,8 @@ public class YaXmlHttpHandle {
 
     @GET
     @Path("/{yaXmlRequest}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
     public int frequency(@PathParam("yaXmlRequest") String request) throws FileNotFoundException {
         YaSearcher yaSearcher = new YaSearcher();
         return Integer.parseInt(yaSearcher.sendRequest(request));
