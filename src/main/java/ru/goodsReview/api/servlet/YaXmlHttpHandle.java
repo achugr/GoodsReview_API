@@ -21,8 +21,19 @@ public class YaXmlHttpHandle {
     @Path("/{yaXmlRequest}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
-    public String frequency(@PathParam("yaXmlRequest") String request) throws FileNotFoundException {
+    public String frequencyGetRequest(@PathParam("yaXmlRequest") String request) throws FileNotFoundException {
         YaSearcher yaSearcher = new YaSearcher();
         return yaSearcher.sendRequest(request);
     }
+
+    @POST
+    @Path("/{yaXmlRequest}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String frequencyPostRequest(@PathParam("yaXmlRequest") String request) throws FileNotFoundException {
+        YaSearcher yaSearcher = new YaSearcher();
+        return yaSearcher.sendRequest(request);
+    }
+
+
 }

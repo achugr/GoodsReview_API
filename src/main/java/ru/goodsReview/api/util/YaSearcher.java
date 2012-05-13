@@ -99,7 +99,7 @@ public class YaSearcher {
     public static void main(String[] args) {
         try {
             YaSearcher yaSearcher = new YaSearcher();
-            System.out.println(yaSearcher.sendRequest("yandex"));
+            System.out.println(yaSearcher.sendRequest("!ноутбук /2 !ужасный"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
