@@ -30,12 +30,15 @@ function getThesises(cloud) {
 
 function drawClouds() {
 
-    cloud = data;
+    var cloud = data;
+
+    var varX = 0;
+    var varY = 0;
     var thesises = new getThesises(cloud);
 
-    var paper = Raphael(100, 100, 1000, 1000);
+    var paper = Raphael(varX, varY, 1000, 1000);
 
-    var c = paper.image("http://i.imgur.com/Zbxme.png", 200, 250, 150, 200);
+    var c = paper.image("http://i.imgur.com/Zbxme.png", varX + 100, varY + 150, 150, 200);
     var alphaGreen = 90.0 / 57.3;
     var alphaRed = 270.0 / 57.3;
     var radius = 250;
@@ -43,11 +46,11 @@ function drawClouds() {
     var dAlphaRed = (60.0 / (thesises.listOfPositiveItems.length)) / 57.3;
     var lRed = Math.sqrt(2 * radius * radius - 2 * radius * radius * Math.cos(dAlphaRed));
     var lGreen = Math.sqrt(2 * radius * radius - 2 * radius * radius * Math.cos(dAlphaGreen));
-    var cxRed = 100;
+    var cxRed = varX;
     var cyRed = 0;
-    var cxGreen = 450;
+    var cxGreen = varX + 350;
     var cyGreen = 0;
-    var y = 350;
+    var y = varX + 250;
     var t = paper.text(200 + 75 - cloud.product_name.length / 2, 150, cloud.product_name).attr({
 
         'fill':Raphael.getRGB("black"),
@@ -95,7 +98,9 @@ function drawClouds() {
             cyRed += lRed * Math.sin(alphaRed);
 
         }
+
+
     }
+
+
 }
-
-
