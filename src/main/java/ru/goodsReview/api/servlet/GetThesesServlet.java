@@ -3,22 +3,16 @@ package ru.goodsReview.api.servlet;
 import org.json.JSONException;
 import ru.goodsReview.api.util.FileUtil;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import java.io.IOException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: artemii
- * Date: 22.04.12
- * Time: 20:35
- * To change this template use File | Settings | File Templates.
- */
 @Path("getTheses/review")
 public class GetThesesServlet {
 
     @GET
-    @Produces(MediaType.TEXT_HTML)
+    @Produces("text/html; charset=UTF-8")
     public String getTheses() {
         String page404 = "404 PAGE NOT FOUND";
 
