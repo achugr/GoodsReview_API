@@ -29,12 +29,9 @@ function getThesises(cloud) {
 
 
 function drawClouds() {
-
-    var cloud = data;
-
-    var varX = 0;
-    var varY = 0;
-    var thesises = new getThesises(cloud);
+    var varX=0;
+    var varY=0;
+    var thesises = new getThesises(data);
 
     var paper = Raphael(varX, varY, 1000, 1000);
 
@@ -42,8 +39,8 @@ function drawClouds() {
     var alphaGreen = 90.0 / 57.3;
     var alphaRed = 270.0 / 57.3;
     var radius = 250;
-    var dAlphaGreen = (60.0 / (thesises.listOfNegativeItems.length)) / 57.3;
-    var dAlphaRed = (60.0 / (thesises.listOfPositiveItems.length)) / 57.3;
+    var dAlphaGreen = (60.0 / (thesises.listOfPositiveItems.length)) / 57.3;
+    var dAlphaRed = (60.0 / (thesises.listOfNegativeItems.length)) / 57.3;
     var lRed = Math.sqrt(2 * radius * radius - 2 * radius * radius * Math.cos(dAlphaRed));
     var lGreen = Math.sqrt(2 * radius * radius - 2 * radius * radius * Math.cos(dAlphaGreen));
     var cxRed = varX;
