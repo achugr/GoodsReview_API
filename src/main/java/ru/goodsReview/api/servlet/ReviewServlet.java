@@ -1,20 +1,24 @@
 package ru.goodsReview.api.servlet;
 
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import ru.goodsReview.analyzer.AnalyzeThesis;
 import ru.goodsReview.analyzer.ExtractThesis;
 import ru.goodsReview.analyzer.wordAnalyzer.MystemAnalyzer;
 import ru.goodsReview.api.util.ThesisSetGenerator;
 import ru.goodsReview.beans.ThesisSetForView;
+import ru.goodsReview.core.model.Product;
 import ru.goodsReview.core.model.Review;
 import ru.goodsReview.core.model.Thesis;
+import ru.goodsReview.storage.controller.ProductDbController;
+import ru.goodsReview.storage.controller.ThesisDbController;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.sql.DataSource;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 

@@ -48,7 +48,7 @@ public class ViewTagCloudFunctionServlet {
         List<Thesis> thesisList = thesisesOnProduct(productId);/*new java.util.LinkedList<Thesis>();*/
         String jsonThesises = thesisesIntoJSON(thesisList, "some product");
         try {
-            page = FileUtil.readFileAsString("viewTagCloudFunction.js");
+            page = FileUtil.readFileAsString("viewTagCloudFunction_v2.js");
         } catch (IOException e) {
             e.printStackTrace();
         }
