@@ -26,10 +26,7 @@ import ru.goodsReview.core.model.Thesis;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class ExtractThesis extends TimerTask{
     private static final Logger log = org.apache.log4j.Logger.getLogger(AnalyzeThesis.class);
@@ -63,11 +60,13 @@ public class ExtractThesis extends TimerTask{
         String content = review.getContent();
 
         ArrayList<Phrase> listThesis = doExtraction(content, mystemAnalyzer);
-
+//        TODO it's hardcore! positivity, importance
+        Random random = new Random();
         for (Phrase phrase:listThesis){
             String token1 =  phrase.getFeature();
             String token2 =  phrase.getOpinion();
-            extractedThesisList.add(new Thesis(review.getId(), 1, token1 + " " + token2, 0, 0.0, 0.0));
+
+            extractedThesisList.add(new Thesis(review.getId(), 1, token1 + " " + token2, 0, (0.5-random.nextDouble()) * random.nextInt() % 3 , random.nextDouble() + 0.3));
         }
 
         return extractedThesisList;
