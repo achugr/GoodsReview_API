@@ -8,6 +8,7 @@ package ru.goodsReview.analyzer.util;
  */
 
 import ru.goodsReview.analyzer.util.sentence.PartOfSpeech;
+import ru.goodsReview.analyzer.wordAnalyzer.MystemAnalyzer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class ThesisPattern {
      * matches with this pattern
      * @param sourceThesis possibly this is thesis
      * @return true if sourceThesis matches with pattern, false - otherwise
-     * @throws java.io.IOException
+     * @throws IOException
      */
    /* public boolean match(List<String> sourceThesis) throws IOException {
         if(sourceThesis.size() != pattern.size()){

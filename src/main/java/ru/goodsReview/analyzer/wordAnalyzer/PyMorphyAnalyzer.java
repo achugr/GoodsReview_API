@@ -75,7 +75,7 @@ public class PyMorphyAnalyzer {
 
 //        String normalizedWord = sc.nextLine();
 //        System.out.println(normalizedWord);
-
+        
         BufferedReader stdInput = new BufferedReader(new InputStreamReader(analyzer.getInputStream()));
 
         BufferedReader stdError = new BufferedReader(new InputStreamReader(analyzer.getErrorStream()));
@@ -90,9 +90,9 @@ public class PyMorphyAnalyzer {
 //
 //       }
         String s =  stdInput.readLine();
-        if(s!=null){
-            return s;
-        }
+          if(s!=null){
+              return s;
+          }
 
 
 
@@ -100,7 +100,7 @@ public class PyMorphyAnalyzer {
 
         while ((s = stdError.readLine()) != null) {
 
-            //  System.out.println(s);
+          //  System.out.println(s);
 
         }
         return "";

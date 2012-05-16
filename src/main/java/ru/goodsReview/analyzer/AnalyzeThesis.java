@@ -172,7 +172,7 @@ public class AnalyzeThesis extends TimerTask {
      * Each thesis hasn't thesisUniqueId field
      * @param listOfReviews - the soucre we get thesises from
      * @return map, where key - a word and value - its frequency
-     * @throws ru.goodsReview.core.db.exception.StorageException
+     * @throws StorageException
      */
     private Map<String, Integer> additioningOfThesisesAndGettingOfTUs(List<Review> listOfReviews) throws StorageException {
        ThesisController thesisDbController = controllerFactory.getThesisController();

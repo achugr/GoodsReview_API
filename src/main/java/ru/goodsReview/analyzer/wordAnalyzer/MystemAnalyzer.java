@@ -210,7 +210,7 @@ public class MystemAnalyzer implements WordAnalyzer{
      * method for determine part of speech of word by means of Mystem
      * @param word which part of speech we want know
      * @return Part of speech
-     * @throws java.io.UnsupportedEncodingException
+     * @throws UnsupportedEncodingException
      */
     public PartOfSpeech partOfSpeech(String word) throws UnsupportedEncodingException {
         if(this.wordCharacteristic(word).equals("A")){

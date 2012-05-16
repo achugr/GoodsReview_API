@@ -7,9 +7,16 @@ package ru.goodsReview.analyzer.util;
  *      artemij.chugreev@gmail.com
  */
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import ru.goodsReview.core.utils.HashMapUtil;
+
+import javax.xml.xpath.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class FrequencyDictionary {
 
