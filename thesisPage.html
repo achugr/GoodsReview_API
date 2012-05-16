@@ -89,7 +89,7 @@
                 t = paper.text(cxGreen, y + Math.pow(-1, j) * cyGreen, thesises.listOfPositiveItems[j].value).attr({
 
                     'fill':Raphael.getRGB("green"),
-                    'opacity':Math.abs(thesises.listOfPositiveItems[j].positivity / 6),
+                    'opacity':Math.abs(thesises.listOfPositiveItems[j].positivity / 3),
                     'font-size': thesises.listOfPositiveItems[j].importance * 10 + 15 ,
                     'font-family': 'arial'
                 });
@@ -107,7 +107,7 @@
                 t = paper.text(cxRed, y + Math.pow(-1, j) * cyRed, thesises.listOfNegativeItems[j].value).attr({
 
                     'fill':Raphael.getRGB("red"),
-                    'opacity':Math.abs(thesises.listOfNegativeItems[j].positivity / 6),
+                    'opacity':Math.abs(thesises.listOfNegativeItems[j].positivity / 3),
                     'font-size': thesises.listOfNegativeItems[j].importance * 10 + 15 ,
                     'font-family': 'arial'
                 });
