@@ -30,7 +30,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Path("review")
-public class    ReviewServlet {
+public class ReviewServlet {
 //    some problems with logger now :(
 //    TODO read documentation and fix this problem
 //    private static final Logger log = Logger.getLogger(ThesisServlet.class);
